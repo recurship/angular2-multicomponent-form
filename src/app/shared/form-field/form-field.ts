@@ -5,6 +5,7 @@ export class FormField {
        public name: string,      
        public label: string, 
        public defaultValue: string = '',
+       public hidden: boolean,
        public validations: Validator[] = []) {}  
 }
 
@@ -16,9 +17,10 @@ export class TextFormField extends FormField {
        public name: string,      
        public label: string, 
        public defaultValue: string = '',
+       public hidden: boolean,
        public placeholder: string = '',
        public validations: Validator[] = []) {
-        super(name, label, defaultValue, validations);
+        super(name, label, defaultValue, hidden, validations);
     }
     
 }
@@ -31,9 +33,10 @@ export class SelectFormField extends FormField {
        public name: string,
        public options: Array<string>,      
        public label: string, 
+       public hidden: boolean,
        public defaultValue: string = '',
        public validations: Validator[] = []) {
-        super(name, label, defaultValue, validations);
+        super(name, label, defaultValue, hidden, validations);
     }
     
 }
@@ -47,8 +50,9 @@ export class NumberFormField extends FormField {
        public label: string,
        public min: string = '', 
        public defaultValue: string = '0',
+       public hidden: boolean,
        public validations: Validator[] = []) {
-      super(name, label, defaultValue, validations);
+      super(name, label, defaultValue, hidden, validations);
     }
 
 }
@@ -62,8 +66,9 @@ export class RadioFormField extends FormField {
        public label: string,
        public options: Array<string>,
        public defaultValue: string = '',
+       public hidden: boolean,
        public validations: Validator[] = []) {
-      super(name, label, defaultValue, validations);
+      super(name, label, defaultValue, hidden, validations);
     }
 
 }

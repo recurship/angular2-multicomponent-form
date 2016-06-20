@@ -1,11 +1,11 @@
-<div [ngClass]="{ 'has-error' : !field[1].valid }">
-<label>{{ field[0].label }}</label>
+<div [ngClass]="{ 'has-error' : !field[1].valid && !field[0].hidden}">
+<label *ngIf="!field[0].hidden">{{ field[0].label }}</label>
 
 <span *ngFor="let validation of field[0].validations">
-  <em class="text-danger" *ngIf="!field[1].valid && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
+  <em class="text-danger" *ngIf="!field[1].valid && !field[0].hidden && field[1]['errors'][validation.type.toLowerCase()]"> {{ validation.message }}</em>
 </span>
 
-<div *ngIf="field[0].type == 'select'">
+<div [ngClass]="{ 'hide' : field[0].hidden}" *ngIf="field[0].type == 'select'">
   <select [ngFormControl]="field[1]"
     (change)="updateValue($event)"
     (focus)="onTouched()"
@@ -18,7 +18,7 @@
   </select>
 </div>
 
-<div *ngIf="field[0].type == 'text'">
+<div [ngClass]="{ 'hide' : field[0].hidden}" *ngIf="field[0].type == 'text'">
   <input type="text"
     [ngFormControl]="field[1]"
     class="form-control"
@@ -27,7 +27,7 @@
     placeholder="{{ field[0].placeholder }}" focus-reset-field/>
 </div>
 
-<div *ngIf="field[0].type == 'number'">
+<div [ngClass]="{ 'hide' : field[0].hidden}" *ngIf="field[0].type == 'number'">
   <input type="number"
     [ngFormControl]="field[1]"
     class="form-control"
@@ -36,7 +36,7 @@
     min="{{ field[0].min }}" />
 </div>
 
-<div *ngIf="field[0].type == 'radio'">
+<div [ngClass]="{ 'hide' : field[0].hidden}" *ngIf="field[0].type == 'radio'">
   <label class="radio-inline" *ngFor="let option of field[0].options">
     <input name="field[0].name"
       class="btn"
