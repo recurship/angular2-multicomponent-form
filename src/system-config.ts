@@ -3,10 +3,14 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'angular2-highcharts' : 'vendor/angular2-highcharts',
+  'highcharts': 'vendor/highcharts'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'angular2-highcharts': { defaultExtension: 'js', main: 'index' },
+  'highcharts': { defaultExtension: 'js', main: 'highcharts' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,6 +36,7 @@ const barrels: string[] = [
   'app/+step1',
   'app/+step2',
   'app/shared/form-field',
+  'app/shared/chart',
   /** @cli-barrel */
 ];
 
