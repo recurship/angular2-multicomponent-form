@@ -17,8 +17,11 @@ module.exports = function(defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'angular2-ie9-shims/*.js',
-	  'ng2-bootstrap/**/*.*',
-      'moment/**/*.js'
+	    'ng2-bootstrap/**/*.*',
+      'moment/**/*.js',
+      'html5-history-api/*.js',
+      'highcharts/**/*.js',
+      'angular2-highcharts/**/*js',
     ]
   });
 };
