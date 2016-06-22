@@ -9,7 +9,8 @@
   <select [ngFormControl]="field[1]"
     (change)="updateValue($event)"
     (focus)="onTouched()"
-    class="form-control">
+    class="form-control"
+    [disabled]="field[0].readOnly">
     <option 
       *ngFor="let option of field[0].options" 
       value="{{ option }}">
@@ -24,7 +25,9 @@
     class="form-control"
     (focus)="onTouched()"
     (blur)="updateValue($event)"
-    placeholder="{{ field[0].placeholder }}" focus-reset-field/>
+    placeholder="{{ field[0].placeholder }}" 
+    [readonly]="field[0].readOnly"
+    focus-reset-field/>
 </div>
 
 <div *ngIf="field[0].type == 'number'">
@@ -33,7 +36,8 @@
     class="form-control"
     (focus)="onTouched()"
     (blur)="updateValue($event)"
-    min="{{ field[0].min }}" />
+    min="{{ field[0].min }}" 
+    [readonly]="field[0].readOnly"/>
 </div>
 
 <div *ngIf="field[0].type == 'radio'">
@@ -44,7 +48,8 @@
       value="{{ option }}"
       [checked]="option === field[1].value"
       (focus)="onTouched()"
-      (click)="updateValue($event)" /> {{ option }}
+      (click)="updateValue($event)" 
+      [readonly]="field[0].readOnly"/> {{ option }}
   </label>
 </div>
 </div>
