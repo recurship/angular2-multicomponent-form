@@ -21,6 +21,8 @@
     "@angular/platform-browser": "2.0.0-rc.3",
     "@angular/platform-browser-dynamic": "2.0.0-rc.3",
     "@angular/router": "3.0.0-alpha.8",
+    "angular2-highcharts": "^0.1.0",
+    "highcharts": "^4.2.5",
     "angular2-ie9-shims": "0.0.1",
     "es6-shim": "0.35.1",
     "reflect-metadata": "0.1.3",
